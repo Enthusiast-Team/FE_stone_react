@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+}
+
+/* Contoh CSS media query untuk menampilkan Handphone hanya pada layar mobile */
+@media (min-width: 769px) {
+  .handphone {
+    display: none;
+  }
+}
