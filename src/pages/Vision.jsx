@@ -6,9 +6,9 @@ import Camera from '../component/Camera'
 export default function Vision() {
   return (
     <div>
-        {/* <Navbar/> */}
+        <Navbar/>
         <Camera/>
-        {/* <Footer/> */}
+        <Footer/>
     </div>
   )
 }

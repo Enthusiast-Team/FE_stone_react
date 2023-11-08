@@ -33,6 +33,11 @@ const Navbar = () => {
             className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
           >
             Berita
+          </a> <a
+            href="/chatai"
+            className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+          >
+            Chat-Ai
           </a>
         </nav>
       </header>

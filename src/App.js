@@ -7,6 +7,7 @@ import { Store } from './config/store';
 import Berita from './pages/Artikel';
 import Artikel from './pages/Artikel';
 import Vision from './pages/Vision';
+import ChatAi from './pages/ChatAi';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/artikel" element={<Artikel />}/>
         <Route path="/Berita" element={<Berita />}/>
         <Route path="/vision" element={<Vision />}/>
+        {/* <Route path="/chatai" element={<ChatAi />}/> */}
       </Routes>
     </Router>
     </Provider>

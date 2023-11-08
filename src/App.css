@@ -8,7 +8,6 @@
     display: none;
   }
 }
-
 /* Contoh CSS media query untuk menampilkan Handphone hanya pada layar mobile */
 @media (min-width: 769px) {
   .handphone {
