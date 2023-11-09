@@ -5,8 +5,9 @@ import Navbar from '../component/Navbar'
 export default function ChatAi() {
   return (
     <div>
-      {/* <Navbar/> */}
-        {/* <Chatbot/>    */}
+      <Navbar/>
+        <Chatbot/>   
+        {/* <Footer/> */}
     </div>
   )
 }
