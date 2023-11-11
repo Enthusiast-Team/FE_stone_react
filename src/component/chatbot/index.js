@@ -59,35 +59,37 @@ export default function App() {
     sendToChatbot([...messages, userMessage]);
   };
 
-  const sendToChatbot = async (chatMsgs) => {
+    const sendToChatbot = async (chatMsgs) => {
     try {
         const userMessage = chatMsgs[chatMsgs.length - 1].model.message; // Mendapatkan pesan terbaru dari pengguna
         const response = await fetch('http://localhost:5000/chatbot', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userMessage })
-        });
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message: userMessage })
+});
 
-        const data = await response.json();
+const data = await response.json();
+console.log('Response from server:', data);  // Tambahkan ini untuk memeriksa respons
 
-        const chatbotMessage = {
-            model: {
-                message: data.response,
-                sender: 'ChatBot',
-                direction: 'incoming',
-                position: 'normal'
-            },
-            avatar: (
-                <Avatar
-                    src={require("../../assest/download.png")}
-                    name="ChatBot"
-                />
-            ),
-        };
+const chatbotMessage = {
+    model: {
+        message: data.response          ,  // Pastikan atribut ini sesuai dengan respons server
+        sender: 'ChatBot',
+        direction: 'incoming',
+        position: 'normal'
+    },
+    avatar: (
+        <Avatar
+            src={require("../../assest/download.png")}
+            name="ChatBot"
+        />
+    ),
+};
 
-        setMessages([...chatMsgs, chatbotMessage]);
+setMessages([...chatMsgs, chatbotMessage]);
+
     } catch (error) {
         console.error('Error:', error);
     }
