@@ -3,7 +3,7 @@ import React from 'react';
 const CardComponent = (props) => {
     return (
         <div>
-               <a
+               <div
               href="#"
               className="group relative flex h-48 w-full flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96"
             >
@@ -24,7 +24,7 @@ const CardComponent = (props) => {
 
                 <span className="font-semibold text-indigo-300">Read more</span>
               </div>
-            </a>
+            </div>
 
         </div>
     );

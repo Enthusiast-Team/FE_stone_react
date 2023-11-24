@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import image from '../../assest/iconcamera-removebg-preview.png';
 
 const Camera = () => {
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const file = e.target.files[0];
@@ -18,7 +22,7 @@ const Camera = () => {
     reader.onload = function () {
       const base64String = reader.result.split(',')[1];
       setInputValue(base64String);
-      console.log('Gambar dalam format base64:', base64String); // Tampilkan di konsol log
+      console.log('Gambar dalam format base64:', base64String);
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
@@ -27,20 +31,42 @@ const Camera = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
+      // Lakukan prediksi
       const response = await axios.post('http://localhost:5000/predict', {
         message: inputValue
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
       });
-      console.log(response);
+      console.log(response)
+      const predictionResult = response.data;
+      const nama = predictionResult.nama;
+
+      if (predictionResult && predictionResult.nama) {
+        // Dapatkan artikel berdasarkan ID menggunakan API
+        const idResponse = await axios.get(`http://localhost:5000/artikel/${predictionResult.nama}`);
+        const idArtikel = idResponse.data.data.id
+        console.log(idArtikel)
+        console.log("get:",idResponse.data.data.judul)
+  
+        // Gunakan ID artikel untuk mengarahkan pengguna ke halaman artikel
+        navigate(`/artikel/${idArtikel}`);
+      } else {
+        console.log('Data hasil prediksi tidak valid');
+      }
     } catch (error) {
-      console.error('Error:', error);
+      console.log('Gagal terkirim:', error);
+      if (error.response && error.response.data) {
+        const errorMessage = error.response.data.message;
+        console.log('Pesan Kesalahan:', errorMessage);
+        // Tampilkan pesan kesalahan kepada pengguna, misalnya menggunakan notifikasi atau mengubah status di state Redux.
+      }
     }
-  }
+  };
+  
+
+
+  // const prediction = useSelector(state => state.prediction);
+  // const error = useSelector(state => state.error);
 
   return (
     <div>
@@ -66,7 +92,6 @@ const Camera = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
