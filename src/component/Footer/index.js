@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-             <footer className="bg-white">
+        <footer className="bg-white mt-36">
         <div className="bg-indigo-500 py-6">
           <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
             <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
@@ -45,8 +45,7 @@ const Footer = () => {
                 {/* <!-- logo - end -->/ */}
 
                 <p className="mb-6 text-gray-500 sm:pr-8">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text
+                Museum Situs Semedo merupakan situs purbakala yang berupa penemuan fosil-fosil dan manusia purba. Letaknya berada Desa Semedo, Kecamatan Kedungbanteng, Kabupaten Tegal, Jawa Tengah.
                 </p>
 
                 {/* <!-- social - start --> */}
@@ -125,43 +124,43 @@ const Footer = () => {
               {/* <!-- nav - start --> */}
               <div>
                 <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
-                  Products
+                  Pages
                 </div>
 
                 <nav className="flex flex-col gap-4">
                   <div>
                     <a
-                      href="#"
+                      href="/"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Overview
+                      Home
                     </a>
                   </div>
 
                   <div>
                     <a
-                      href="#"
+                      href="/artikel"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Solutions
+                      Artikel
                     </a>
                   </div>
 
                   <div>
                     <a
-                      href="#"
+                      href="/berita"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Pricing
+                      berita
                     </a>
                   </div>
 
                   <div>
                     <a
-                      href="#"
+                      href="/chatbot"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Customers
+                      Chatbot
                     </a>
                   </div>
                 </nav>
@@ -171,54 +170,28 @@ const Footer = () => {
               {/* <!-- nav - start --> */}
               <div>
                 <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
-                  Company
+                  Informasi
                 </div>
 
                 <nav className="flex flex-col gap-4">
                   <div>
                     <a
-                      href="#"
+                      href="/"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      About
+                      Pesan Tiket
                     </a>
                   </div>
 
                   <div>
                     <a
-                      href="#"
+                      href="/chatbot"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Investor Relations
+                      Tanya
                     </a>
                   </div>
 
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Jobs
-                    </a>
-                  </div>
-
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Press
-                    </a>
-                  </div>
-
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Blog
-                    </a>
-                  </div>
                 </nav>
               </div>
               {/* <!-- nav - end --> */}
@@ -226,40 +199,22 @@ const Footer = () => {
               {/* <!-- nav - start --> */}
               <div>
                 <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
-                  Support
+                  Pusat Bantuan
                 </div>
 
                 <nav className="flex flex-col gap-4">
                   <div>
                     <a
-                      href="#"
+                      href="/chatbot"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Contact
+                      Chatbot
                     </a>
                   </div>
 
                   <div>
                     <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Documentation
-                    </a>
-                  </div>
-
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Chat
-                    </a>
-                  </div>
-
-                  <div>
-                    <a
-                      href="#"
+                      href="/"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
                       FAQ
@@ -272,7 +227,7 @@ const Footer = () => {
 <!-- nav - start --> */}
               <div>
                 <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
-                  Legal
+                  Kontak
                 </div>
 
                 <nav className="flex flex-col gap-4">
@@ -281,25 +236,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                       >
-                      Terms of Service
-                    </a>
-                  </div>
-
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Privacy Policy
-                    </a>
-                  </div>
-
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                      >
-                      Cookie settings
+                      museum.semedo@gmail.com
                     </a>
                   </div>
                 </nav>

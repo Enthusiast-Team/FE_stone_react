@@ -3,6 +3,7 @@ import Batu from "../assest/enlarge_hewan.png"
 import CardComponent from "../component/Card/CardComponent";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
+import Handphone from "../component/Navbar/hanphone";
 
 export default function Berita() {
   return (
@@ -17,9 +18,9 @@ export default function Berita() {
             </h2>
 
             <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text but is random or otherwise generated.
+            Halaman berita Museum Semedo mengajak Anda untuk memulai petualangan ke dalam kekayaan sejarah dan budaya 
+            yang terabadikan di dalam dinding museum ini. Dengan judul "Menjejak Warisan Luhur," halaman ini menggambarkan 
+            pengalaman menggugah dan penuh pengetahuan yang menanti pengunjungnya.
             </p>
           </div>
 
@@ -77,7 +78,9 @@ export default function Berita() {
         </div>
       </div>
       </div>
+
       <Footer />
+      <Handphone/>
 
     </div>
   );

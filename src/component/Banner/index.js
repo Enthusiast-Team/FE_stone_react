@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import BannerImg from '../../assest/banner.jpg';
 
 export default class Banner extends Component {
   render() {
@@ -8,7 +9,7 @@ export default class Banner extends Component {
            <section className="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
             {/* <!-- image - start --> */}
             <img
-              src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500"
+              src={BannerImg}
               loading="lazy"
               alt="Photo by Fakurian Design"
               className="absolute inset-0 h-full w-full object-cover object-center"
@@ -16,7 +17,7 @@ export default class Banner extends Component {
             {/* <!-- image - end --> */}
 
             {/* <!-- overlay - start --> */}
-            <div className="absolute inset-0 bg-indigo-500 mix-blend-multiply"></div>
+            <div className="absolute inset-0 mix-blend-multiply"></div>
             {/* <!-- overlay - end -->/ */}
 
             {/* <!-- text start --> */}

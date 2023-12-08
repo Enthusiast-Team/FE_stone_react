@@ -4,22 +4,47 @@ import hewan from '../../assest/enlarge_hewan.png';
 import axios from "axios";
 
 const Card = () => {
+  // const [categories, setCategories] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('http://localhost:5000/category');
+  //       setCategories(response.data); // Simpan data ke dalam state categories
+  //       console.log(response)
+  //     } catch (error) {
+  //       console.error('Error:', error);
+  //     }
+  //   };
+
+  //   fetchData();  // Panggil fungsi fetchData
+  // }, []);  
+  // console.log(categories);
+
   const [categories, setCategories] = useState([]);
 
+  // Menggunakan useEffect untuk mendapatkan data kategori (misalnya, dari API)
   useEffect(() => {
+    // pengisian manual data
     const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/category');
-        setCategories(response.data); // Simpan data ke dalam state categories
-        console.log(response)
-      } catch (error) {
-        console.error('Error:', error);
-      }
+      // Contoh pengisian manual
+      const data = [
+        { id: 1, nama: 'Kategori 1' },
+        { id: 2, nama: 'Kategori 2' },
+        { id: 3, nama: 'Kategori 3' },
+        { id: 4, nama: 'Kategori 4' },
+        
+        // Tambahkan data kategori sesuai kebutuhan
+      ];
+
+      setCategories(data);
     };
 
-    fetchData();  // Panggil fungsi fetchData
-  }, []);  
-  console.log(categories);
+    fetchData();
+  }, []); // Dependensi kosong, akan dijalankan sekali setelah komponen dipasang
+
+
+
   return (
     <div>
       <div className="bg-white py-6 sm:py-8 lg:py-12">

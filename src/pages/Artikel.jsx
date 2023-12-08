@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Batu from "../assest/enlarge_hewan.png";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
@@ -9,13 +9,36 @@ import { fetchArtikel } from "../config/action";
 import { ArtikelCard } from "../component/Card/artikel/ArtikelCard";
 
 export default function Artikel() {
-  const dispatch = useDispatch();
-  const artikel = useSelector((state) => state.artikel);
+  // const dispatch = useDispatch();
+  // const artikel = useSelector((state) => state.artikel);
 
+  // useEffect(() => {
+  //   // Menggunakan Redux untuk mengambil daftar artikel saat komponen dimuat
+  //   dispatch(fetchArtikel());
+  // }, [dispatch]);
+
+  const [artikel, setArtikel] = useState([]);
+
+  // Menggunakan useEffect untuk mendapatkan data kategori (misalnya, dari API)
   useEffect(() => {
-    // Menggunakan Redux untuk mengambil daftar artikel saat komponen dimuat
-    dispatch(fetchArtikel());
-  }, [dispatch]);
+    // pengisian manual data
+    const fetchData = async () => {
+      // Contoh pengisian manual
+      const data = [
+        { id: 1, judul: 'Kategori 1' },
+        { id: 2, judul: 'Kategori 2' },
+        { id: 3, judul: 'Kategori 3' },
+        { id: 4, judul: 'Kategori 4' },
+        
+        // Tambahkan data kategori sesuai kebutuhan
+      ];
+
+      setArtikel(data);
+    };
+
+    fetchData();
+  }, []); // Dependensi kosong, akan dijalankan sekali setelah komponen dipasang
+
 
   return (
     <div>
@@ -63,6 +86,7 @@ export default function Artikel() {
         </div>
       </div>
       <Footer />
+      <Handphone/>
     </div>
   );
 }
