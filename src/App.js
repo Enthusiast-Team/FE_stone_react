@@ -10,6 +10,7 @@ import Vision from './pages/Vision';
 import ChatAi from './pages/ChatAi';
 import './App.css';
 import Subartikel from './pages/content/Subartikel';
+import Input from './component/Input';
 
 function App() {
   return (
@@ -19,9 +20,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/Berita" element={<Berita />} />
+          <Route path="/input" element={<Input />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/chatbot" element={<ChatAi />} />
-          <Route path="/artikel/:id" element={<Subartikel />} /> Tambahkan rute untuk ArtikelByID
+          {/* <Route path="/artikel/:id" element={<Subartikel />} /> Tambahkan rute untuk ArtikelByID */}
         </Routes>
       </Router>
     </Provider>

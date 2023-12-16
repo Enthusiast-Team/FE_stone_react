@@ -4,8 +4,7 @@ const initialState = {
   isLogin: false,
   isLoading: false,
   user: [],
-  artikel: [],
-  selectedArtikel: null,
+  artikelData: [],
   prediction: null,
   error: null,
 };
@@ -35,7 +34,7 @@ const reducer = (state = initialState, action) => {
     case 'SET_ARTIKEL':
       return {
         ...state,
-        artikel: action.value,
+        artikelData: action.value,
       };
     case 'SET_SELECTED_ARTIKEL':
       return {

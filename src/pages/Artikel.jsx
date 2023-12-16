@@ -1,44 +1,17 @@
-import React, { Fragment, useEffect, useState } from "react";
-import Batu from "../assest/enlarge_hewan.png";
+import React, { useEffect } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Handphone from "../component/Navbar/hanphone";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { fetchArtikel } from "../config/action";
 import { ArtikelCard } from "../component/Card/artikel/ArtikelCard";
 
-export default function Artikel() {
-  // const dispatch = useDispatch();
-  // const artikel = useSelector((state) => state.artikel);
-
-  // useEffect(() => {
-  //   // Menggunakan Redux untuk mengambil daftar artikel saat komponen dimuat
-  //   dispatch(fetchArtikel());
-  // }, [dispatch]);
-
-  const [artikel, setArtikel] = useState([]);
-
-  // Menggunakan useEffect untuk mendapatkan data kategori (misalnya, dari API)
+const Artikel = ({ artikelData, dispatch }) => {
   useEffect(() => {
-    // pengisian manual data
-    const fetchData = async () => {
-      // Contoh pengisian manual
-      const data = [
-        { id: 1, judul: 'Kategori 1' },
-        { id: 2, judul: 'Kategori 2' },
-        { id: 3, judul: 'Kategori 3' },
-        { id: 4, judul: 'Kategori 4' },
-        
-        // Tambahkan data kategori sesuai kebutuhan
-      ];
-
-      setArtikel(data);
-    };
-
-    fetchData();
-  }, []); // Dependensi kosong, akan dijalankan sekali setelah komponen dipasang
-
+    // Pemanggilan action creator untuk mengambil data artikel
+    dispatch(fetchArtikel());
+  }, [dispatch]);
+  console.log("artikel:",artikelData)
 
   return (
     <div>
@@ -52,10 +25,7 @@ export default function Artikel() {
             </h2>
 
             <div className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg mb-6">
-              Ini adalah bagian dari teks pengisi sederhana, juga dikenal
-              sebagai teks pengganti. Ini memiliki beberapa karakteristik dari
-              teks tulisan sejati tetapi bersifat acak atau dihasilkan secara
-              otomatis.
+              Ini adalah bagian dari teks pengisi sederhana, juga dikenal sebagai teks pengganti. Ini memiliki beberapa karakteristik dari teks tulisan sejati tetapi bersifat acak atau dihasilkan secara otomatis.
             </div>
 
             <div className="flex justify-center mb-6">
@@ -71,22 +41,23 @@ export default function Artikel() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 auto-cols-max">
-            {/* Menampilkan daftar artikel menggunakan map */}
-            {artikel.length > 0 ? (
-              <Fragment>
-                {artikel.map((artikel, index) => (
-                  <Link to={`/artikel/${artikel.id}`} key={index}>
-                    {/* Menggunakan komponen ArtikelCard untuk setiap artikel */}
-                    <ArtikelCard Image={Batu} judul={artikel.judul}  read="Read more"/>
-                  </Link>
-                ))}
-              </Fragment>
-            ) : null}
+        {/* Menampilkan daftar artikel menggunakan map */}
+        {artikelData.map((artikel) => (
+          <div key={artikel.id}>
+            {/* Tampilkan konten artikel sesuai kebutuhan */}
+            <ArtikelCard Image={artikel.GambarArtikel1} judul={artikel.JudulArtikel}  read="Read more"/>
           </div>
+        ))}
+      </div>
         </div>
       </div>
       <Footer />
-      <Handphone/>
+      <Handphone />
     </div>
   );
-}
+};
+const mapStateToProps = (state) => ({
+  artikelData: state.artikelData,
+});
+
+export default connect(mapStateToProps)(Artikel);

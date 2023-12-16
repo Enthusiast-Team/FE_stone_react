@@ -74,8 +74,8 @@ const Camera = () => {
         <div className="bg-cover min-h-screen flex items-center justify-center">
           <div className="bg-sky-400 rounded-lg border-8 md:w-1/3 w-4/6 border-black h-4/5 relative">
             <div className="border-2 m-auto top-6 md:top-12 border-dashed border-black w-4/6 sm:w-3/4 h-48 sm:h-64 relative">
-              <div className="border-dashed border-black h-full">
-                <img src={image} alt="" className="w-full h-full object-cover" />
+              <div className="border-dashed border-black h-full p-4 ">
+                <img src={image} alt="" className="w-4/5 h-full object-cover ml-12 " />
               </div>
             </div>
             <form onSubmit={handleSubmit}>
