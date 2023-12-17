@@ -7,6 +7,7 @@ const initialState = {
   artikelData: [],
   prediction: null,
   error: null,
+  artikelDetail:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -53,6 +54,11 @@ const reducer = (state = initialState, action) => {
         prediction: null,
         error: action.payload,
       };
+      case 'SET_ARTIKEL_DETAIL':
+        return {
+          ...state,
+          artikelDetail: action.payload,
+        };
     default:
       return state;
   }

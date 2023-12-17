@@ -5,13 +5,14 @@ import Handphone from "../component/Navbar/hanphone";
 import { connect } from "react-redux";
 import { fetchArtikel } from "../config/action";
 import { ArtikelCard } from "../component/Card/artikel/ArtikelCard";
+import { Link } from "react-router-dom";
 
 const Artikel = ({ artikelData, dispatch }) => {
   useEffect(() => {
     // Pemanggilan action creator untuk mengambil data artikel
     dispatch(fetchArtikel());
   }, [dispatch]);
-  console.log("artikel:",artikelData)
+  console.log("artikel:", artikelData);
 
   return (
     <div>
@@ -25,7 +26,10 @@ const Artikel = ({ artikelData, dispatch }) => {
             </h2>
 
             <div className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg mb-6">
-              Ini adalah bagian dari teks pengisi sederhana, juga dikenal sebagai teks pengganti. Ini memiliki beberapa karakteristik dari teks tulisan sejati tetapi bersifat acak atau dihasilkan secara otomatis.
+              Ini adalah bagian dari teks pengisi sederhana, juga dikenal
+              sebagai teks pengganti. Ini memiliki beberapa karakteristik dari
+              teks tulisan sejati tetapi bersifat acak atau dihasilkan secara
+              otomatis.
             </div>
 
             <div className="flex justify-center mb-6">
@@ -40,15 +44,21 @@ const Artikel = ({ artikelData, dispatch }) => {
             </div>
           </div>
 
+          {/* Menampilkan daftar artikel menggunakan map */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 auto-cols-max">
-        {/* Menampilkan daftar artikel menggunakan map */}
-        {artikelData.map((artikel) => (
-          <div key={artikel.id}>
-            {/* Tampilkan konten artikel sesuai kebutuhan */}
-            <ArtikelCard Image={artikel.GambarArtikel1} judul={artikel.JudulArtikel}  read="Read more"/>
+            {artikelData.map((artikel) => (
+              <div key={artikel.id}>
+                {/* Tampilkan konten artikel sesuai kebutuhan */}
+                <Link to={`/artikel/${artikel.id}`}>
+                  <ArtikelCard
+                    Image={artikel.GambarArtikel1}
+                    judul={artikel.JudulArtikel}
+                    read="Lihat Artikel"
+                  />
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
         </div>
       </div>
       <Footer />
