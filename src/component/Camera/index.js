@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';  // Pastikan mengimpor useParams
 import axios from 'axios';
 import image from '../../assest/iconcamera-removebg-preview.png';
+import { fetchArtikel } from '../../config/action';
 
-const Camera = () => {
+const Camera = ({ artikelData }) => {  // Pastikan Anda menerima artikelData sebagai prop
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { JudulArtikel } = useParams();  // Pastikan menggunakan useParams di dalam komponen
+  useEffect(() => {
+    // Memastikan data artikel di-fetch saat komponen pertama kali di-render
+    dispatch(fetchArtikel());
+  }, [dispatch]);
 
   const handleInputChange = (e) => {
     const file = e.target.files[0];
@@ -39,19 +45,19 @@ const Camera = () => {
       });
       console.log(response)
       const predictionResult = response.data;
-      const nama = predictionResult.nama;
-
-      if (predictionResult && predictionResult.nama) {
-        // Dapatkan artikel berdasarkan ID menggunakan API
-        const idResponse = await axios.get(`http://localhost:5000/artikel/${predictionResult.nama}`);
-        const idArtikel = idResponse.data.data.id
-        console.log(idArtikel)
-        console.log("get:",idResponse.data.data.judul)
   
-        // Gunakan ID artikel untuk mengarahkan pengguna ke halaman artikel
-        navigate(`/artikel/${idArtikel}`);
+      // Pastikan artikelData ada dan tidak kosong sebelum melakukan operasi find
+      if (artikelData && artikelData.length > 0) {
+        const artikel = artikelData.find((item) => item.JudulArtikel === predictionResult.nama);
+  
+        if (artikel) {
+          // Dapatkan artikel berdasarkan ID menggunakan API
+          navigate(`/artikel/${artikel.JudulArtikel}`);
+        } else {
+          console.log('Data hasil prediksi tidak valid');
+        }
       } else {
-        console.log('Data hasil prediksi tidak valid');
+        console.log('Data artikel tidak tersedia atau kosong');
       }
     } catch (error) {
       console.log('Gagal terkirim:', error);
@@ -63,8 +69,6 @@ const Camera = () => {
     }
   };
   
-
-
   // const prediction = useSelector(state => state.prediction);
   // const error = useSelector(state => state.error);
 
@@ -75,7 +79,7 @@ const Camera = () => {
           <div className="bg-sky-400 rounded-lg border-8 md:w-1/3 w-4/6 border-black h-4/5 relative">
             <div className="border-2 m-auto top-6 md:top-12 border-dashed border-black w-4/6 sm:w-3/4 h-48 sm:h-64 relative">
               <div className="border-dashed border-black h-full p-4 ">
-                <img src={image} alt="" className="w-4/5 h-full object-cover ml-12 " />
+                <img src={image} alt="" className="w-4/5 h-full object-cover mx-auto " />
               </div>
             </div>
             <form onSubmit={handleSubmit}>
@@ -95,5 +99,8 @@ const Camera = () => {
     </div>
   );
 }
+const mapStateToProps = (state) => ({
+  artikelData: state.artikelData,
+});
 
-export default Camera;
+export default connect(mapStateToProps)(Camera);

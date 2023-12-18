@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <div className="">
     <div className="navbar ">
-      <header className="mb-4 flex items-center justify-between py-4 md:py-8 bg-white p-4 fixed inset-x-0 top-0 z-10">
+      <header className="mb-4 flex items-center justify-between py-4 md:py-8 bg-indigo-500 p-4 fixed inset-x-0 top-0 z-10">
         <a
           href="/"
           className="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl ml-12"
@@ -13,7 +13,7 @@ const Navbar = () => {
         E-artefak
         </a>
         <nav className=" gap-12 lg:flex m-auto">
-          <a href="/" className="text-lg font-semibold text-indigo-500">
+          <a href="/" className="text-lg font-semibold text-black">
             Home
           </a>
           <a

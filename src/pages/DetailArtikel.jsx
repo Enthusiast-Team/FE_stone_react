@@ -9,10 +9,10 @@ import { useParams } from "react-router-dom";
 
 const DetailArtikel = ({ artikelData }) => {
   // Dapatkan ID artikel dari URL
-  const { id } = useParams();
+  const { JudulArtikel } = useParams();
 
   // Temukan artikel berdasarkan ID
-  const artikel = artikelData.find((item) => item.id === id);
+  const artikel = artikelData.find((item) => item.JudulArtikel === JudulArtikel);
 
   if (!artikel) {
     return <div>Artikel tidak ditemukan</div>;
@@ -29,22 +29,27 @@ const DetailArtikel = ({ artikelData }) => {
               {artikel.JudulArtikel}
             </h2>
 
-            <img
-              src={artikel.GambarArtikel1}
-              alt={artikel.JudulArtikel}
-              className="mb-4 mx-auto max-w-full"
-            />
-
-            <p className="text-center text-gray-500 md:text-lg mb-6">
-              {artikel.IsiArtikel1}
-            </p>
+            {artikel.GambarArtikel2 && (
+              <>
+                <img
+                  src={artikel.GambarArtikel1}
+                  alt={artikel.JudulArtikel}
+                  className="mb-4 mx-auto"
+                  style={{ width: 1024, height: 600 }}
+                />
+                <p className="text-center text-gray-500 md:text-lg mb-6">
+                  {artikel.IsiArtikel1}
+                </p>
+              </>
+            )}
 
             {artikel.GambarArtikel2 && (
               <>
                 <img
                   src={artikel.GambarArtikel2}
                   alt={artikel.JudulArtikel}
-                  className="mb-4 mx-auto max-w-full"
+                  className="mb-4 mx-auto"
+                  style={{ width: 1024, height: 600 }}
                 />
                 <p className="text-center text-gray-500 md:text-lg mb-6">
                   {artikel.IsiArtikel2}

@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { Fire } from './config/firebase';
 
-axios.defaults.withCredentials = true;
 console.log("succes:",Fire)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

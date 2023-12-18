@@ -49,7 +49,7 @@ const Artikel = ({ artikelData, dispatch }) => {
             {artikelData.map((artikel) => (
               <div key={artikel.id}>
                 {/* Tampilkan konten artikel sesuai kebutuhan */}
-                <Link to={`/artikel/${artikel.id}`}>
+                <Link to={`/artikel/${artikel.JudulArtikel}`}>
                   <ArtikelCard
                     Image={artikel.GambarArtikel1}
                     judul={artikel.JudulArtikel}

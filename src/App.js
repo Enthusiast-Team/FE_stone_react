@@ -25,7 +25,7 @@ function App() {
           <Route path="/vision" element={<Vision />} />
           <Route path="/chatbot" element={<ChatAi />} />
           {/* <Route path="/artikel/:id" element={<Subartikel/>} /> */}
-          <Route path="/artikel/:id" element={<DetailArtikel/>} />
+          <Route path="/artikel/:JudulArtikel" element={<DetailArtikel/>} />
 {/* // Tambahkan rute untuk ArtikelByID */}
         </Routes>
       </Router>
