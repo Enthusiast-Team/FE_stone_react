@@ -384,7 +384,7 @@ export default function App() {
       style={{
         height: "600px",
         position: "relative",
-        top: "100px",
+        // top: "100px",
       }}
     >
       <MainContainer responsive>

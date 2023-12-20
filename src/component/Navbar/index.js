@@ -4,43 +4,23 @@ const Navbar = () => {
   return (
     <div className="">
     <div className="navbar ">
-      <header className="mb-4 flex items-center justify-between py-4 md:py-8 bg-indigo-500 p-4 fixed inset-x-0 top-0 z-10">
-        <a
-          href="/"
-          className="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl ml-12"
-          aria-label="logo"
-        >
-        E-artefak
-        </a>
-        <nav className=" gap-12 lg:flex m-auto">
-          <a href="/" className="text-lg font-semibold text-black">
-            Home
-          </a>
-          <a
-            href="/artikel"
-            className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-          >
-            Artikel
-          </a>
-          <a
-            href="/vision"
-            className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-          >
-            Vision
-          </a>
-          <a
-            href="/berita"
-            className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-          >
-            Berita
-          </a> <a
-            href="/chatbot"
-            className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-          >
-            Tanya
-          </a>
-        </nav>
-      </header>
+    <header class="text-black  bg-transparent body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+      <a href="/" class="mr-5 hover:text-blue-600">Home</a>
+      <a href="/artikel"  class="mr-5 hover:text-blue-600">Artikel</a>
+      <a href="/vision" class="mr-5 hover:text-blue-600">Vision</a>
+      <a href="/chatbot" class="hover:text-blue-600">Chatbot</a>
+    </nav>
+    <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-black lg:items-center lg:justify-center mb-4 md:mb-0">
+      
+      <span class="ml-3 text-3xl xl:block lg:hidden">E-artefak </span>
+    </a>
+    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+    
+    </div>
+  </div>
+</header>
     </div>
     </div>
   );

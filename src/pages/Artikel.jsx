@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Handphone from "../component/Navbar/hanphone";
@@ -8,11 +8,21 @@ import { ArtikelCard } from "../component/Card/artikel/ArtikelCard";
 import { Link } from "react-router-dom";
 
 const Artikel = ({ artikelData, dispatch }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredArtikel, setFilteredArtikel] = useState([]);
+
   useEffect(() => {
     // Pemanggilan action creator untuk mengambil data artikel
     dispatch(fetchArtikel());
   }, [dispatch]);
-  console.log("artikel:", artikelData);
+
+  useEffect(() => {
+    // Saat data artikel berubah, atur filteredArtikel berdasarkan searchTerm
+    const filtered = artikelData.filter((artikel) =>
+      artikel.JudulArtikel.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredArtikel(filtered);
+  }, [artikelData, searchTerm]);
 
   return (
     <div>
@@ -37,6 +47,8 @@ const Artikel = ({ artikelData, dispatch }) => {
                 type="text"
                 className="border border-gray-300 px-4 py-2 rounded-lg w-full"
                 placeholder="Cari Artikel..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg">
                 Cari
@@ -46,7 +58,7 @@ const Artikel = ({ artikelData, dispatch }) => {
 
           {/* Menampilkan daftar artikel menggunakan map */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 auto-cols-max">
-            {artikelData.map((artikel) => (
+            {filteredArtikel.map((artikel) => (
               <div key={artikel.id}>
                 {/* Tampilkan konten artikel sesuai kebutuhan */}
                 <Link to={`/artikel/${artikel.JudulArtikel}`}>
@@ -66,6 +78,7 @@ const Artikel = ({ artikelData, dispatch }) => {
     </div>
   );
 };
+
 const mapStateToProps = (state) => ({
   artikelData: state.artikelData,
 });

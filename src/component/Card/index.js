@@ -1,60 +1,45 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardComponent from "./CardComponent";
 import hewan from '../../assest/enlarge_hewan.png';
-import axios from "axios";
+import { connect } from "react-redux";
+import { fetchArtikel } from "../../config/action";
 
-const Card = () => {
-  // const [categories, setCategories] = useState([]);
+const Card = ({ artikelData, dispatch }) => {
+  const [artikelAcak, setArtikelAcak] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('http://localhost:5000/category');
-  //       setCategories(response.data); // Simpan data ke dalam state categories
-  //       console.log(response)
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //     }
-  //   };
-
-  //   fetchData();  // Panggil fungsi fetchData
-  // }, []);  
-  // console.log(categories);
-
-  const [categories, setCategories] = useState([]);
-
-  // Menggunakan useEffect untuk mendapatkan data kategori (misalnya, dari API)
   useEffect(() => {
-    // pengisian manual data
-    const fetchData = async () => {
-      // Contoh pengisian manual
-      const data = [
-        { id: 1, nama: 'Kategori 1' },
-        { id: 2, nama: 'Kategori 2' },
-        { id: 3, nama: 'Kategori 3' },
-        { id: 4, nama: 'Kategori 4' },
-        
-        // Tambahkan data kategori sesuai kebutuhan
-      ];
+    // Pemanggilan action creator untuk mengambil data artikel
+    dispatch(fetchArtikel());
+  }, [dispatch]);
 
-      setCategories(data);
-    };
+  useEffect(() => {
+    // Saat data artikel berubah, lakukan pengacakan dan ambil 4 artikel pertama
+    if (artikelData.length > 0) {
+      const artikelAcak = acakArtikel(artikelData).slice(0, 4);
+      setArtikelAcak(artikelAcak);
+    }
+  }, [artikelData]);
 
-    fetchData();
-  }, []); // Dependensi kosong, akan dijalankan sekali setelah komponen dipasang
-
-
+  // Fungsi untuk mengacak urutan artikel
+  const acakArtikel = (data) => {
+    const dataAcak = [...data];
+    for (let i = dataAcak.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [dataAcak[i], dataAcak[j]] = [dataAcak[j], dataAcak[i]];
+    }
+    return dataAcak;
+  };
 
   return (
     <div>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
           <div className="mb-6 md:mb-10 lg:mb-16">
-          <div className="text-4xl text-center flex items-center mb-4">
-        <div className="border-t flex-grow"></div>
-        <span className="mx-2">Katagori</span>
-        <div className="border-t flex-grow"></div>
-      </div>
+            <div className="text-4xl text-center flex items-center mb-4">
+              <div className="border-t flex-grow"></div>
+              <span className="mx-2">Penemuan Semedo</span>
+              <div className="border-t flex-grow"></div>
+            </div>
 
             <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
               Ini adalah bagian dari teks isi tempat, juga dikenal sebagai teks
@@ -64,26 +49,22 @@ const Card = () => {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
-          {categories.length > 0 ? (
-            <Fragment>
-              {categories.map((category, index) => {
-                  return (
-                <CardComponent
-                  key={index}
-                  Image={hewan}
-                  judul={category.nama} // Gunakan data dari state categories
-                />
-                )
-              })
-            }
-            </Fragment>
-           ) : null}
-
-      </div>
+            {artikelAcak.map((artikel) => (
+              <CardComponent
+                key={artikel.id}
+                Image={artikel.GambarArtikel1}
+                judul={artikel.JudulArtikel}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Card;
+const mapStateToProps = (state) => ({
+  artikelData: state.artikelData,
+});
+
+export default connect(mapStateToProps)(Card);
