@@ -6,6 +6,7 @@ import Tiket from "../component/Tiket";
 import Card from "../component/Card";
 import Faq from "../component/Faq";
 import Footer from "../component/Footer";
+import SentimenPieChart from "../component/Sentimen/hasil";
 
 export default function Home() {
   return (
@@ -14,13 +15,13 @@ export default function Home() {
       <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
           <Navbar />
-          
           <Banner />
         </div>
       </div>
       <Tiket />
       <Card />
       <Faq />
+      <SentimenPieChart/>
       <Footer />
       <Handphone />
     </div>
