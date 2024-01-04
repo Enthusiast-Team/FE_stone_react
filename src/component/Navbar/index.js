@@ -1,28 +1,39 @@
 import React from "react";
+import logo from "../../assest/logo/logo_semedo.png"
 
 const Navbar = () => {
   return (
-    <div className="">
-    <div className="navbar ">
-    <header class="text-black  bg-transparent body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-      <a href="/" class="mr-5 hover:text-blue-600">Home</a>
-      <a href="/artikel"  class="mr-5 hover:text-blue-600">Artikel</a>
-      <a href="/vision" class="mr-5 hover:text-blue-600">Vision</a>
-      <a href="/chatbot" class="hover:text-blue-600">Chatbot</a>
-    </nav>
-    <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-black lg:items-center lg:justify-center mb-4 md:mb-0">
-      
-      <span class="ml-3 text-3xl xl:block lg:hidden">E-artefak </span>
-    </a>
-    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-    
-    </div>
+<div class="w-full mx-auto">
+
+<nav class="border-gray-200 px-2 mb-10">
+  <div class="container mx-auto flex flex-wrap items-center justify-between">
+  <a href="#" class="flex">
+    <img src={logo} alt="Logo Semedo" width="51" height="70" />
+      <span class="self-center text-xl font-semibold whitespace-nowrap">E-Semedo</span>
+  </a>
+  <div class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1" id="mobile-menu-3">
+    <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium">
+      <li>
+        <a href="/" class="bg-blue-700 md:bg-transparent text-white block pl-3 pr-4 py-2 md:text-blue-700 md:p-0 rounded text-xl" aria-current="page">Home</a>
+      </li>
+      <li>
+        <a href="/artikel" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 text-xl">Artikel</a>
+      </li>
+      <li>
+        <a href="/vision" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 text-xl">Vision</a>
+      </li>
+      <li>
+        <a href="/chatbot" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 text-xl">Tanya</a>
+      </li>
+      <li>
+        <a href="/ulasan" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 text-xl">Ulasan</a>
+      </li>
+    </ul>
   </div>
-</header>
-    </div>
-    </div>
+  </div>
+</nav>
+</div>
+
   );
 };
 

@@ -14,6 +14,7 @@ import Input from './component/Input';
 import DetailArtikel from './pages/DetailArtikel';
 import Sentimen from './pages/Sentimen';
 import TambahReviewForm from './component/Sentimen/from';
+import Ulasan from './pages/Ulasan';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/input" element={<Input />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/chatbot" element={<ChatAi />} />
+          <Route path="/ulasan" element={<Ulasan/> } />
           <Route path="/sentimen" element={<Sentimen />} />
           <Route path="/tambah-review" element={<TambahReviewForm />} />
           {/* <Route path="/artikel/:id" element={<Subartikel/>} /> */}

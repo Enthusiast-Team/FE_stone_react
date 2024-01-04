@@ -30,7 +30,7 @@ function SentimenComponent() {
         <h1 className='text-2xl font-bold mb-4'>Analisis Sentimen</h1>
         {sentimenData && (
           <div>
-            <BarChart width={400} height={300} data={data}>
+            <BarChart width={600} height={600} data={data}>
               <XAxis dataKey="name" />
               <YAxis />
               <CartesianGrid stroke="#ccc" />

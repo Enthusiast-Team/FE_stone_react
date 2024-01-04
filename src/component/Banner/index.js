@@ -39,7 +39,7 @@ export default class Banner extends Component {
                 transition={{ duration: 1, delay: 0.5 }}
                 className="mb-4 text-center text-lg text-indigo-200 sm:text-xl md:mb-8"
               >
-                Very proud to introduce
+                Websites Museum Semedo
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}

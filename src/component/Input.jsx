@@ -156,12 +156,13 @@ export default class Input extends Component {
           id="GambarArtikel1"
           name="GambarArtikel1"
           onChange={this.handleChange}
-        /><input
+        />
+        <input
         type="file"
         id="GambarArtikel2"
         name="GambarArtikel2"
         onChange={this.handleChange}
-      />
+        />
         <textarea
           id="IsiArtikel1"
           name="IsiArtikel1"
